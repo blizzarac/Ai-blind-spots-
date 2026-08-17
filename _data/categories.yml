@@ -1,0 +1,30 @@
+confabulation:
+  title: Confabulation
+  description: >-
+    The model invents specifics that don't exist — APIs, packages, citations,
+    dates, quotes — and presents them with the same fluency as real ones.
+sycophancy:
+  title: Sycophancy
+  description: >-
+    The model optimizes for agreement over accuracy: it flips correct answers
+    under pushback and accepts false premises embedded in questions.
+calibration:
+  title: Calibration
+  description: >-
+    The model's expressed confidence doesn't track its actual accuracy — it is
+    confidently wrong, and sometimes refuses or hedges on things it knows.
+context-failures:
+  title: Context failures
+  description: >-
+    Information in the context window isn't used uniformly: mid-context content
+    gets lost, and instructions decay over long multi-turn conversations.
+reasoning-shortcuts:
+  title: Reasoning shortcuts
+  description: >-
+    Pattern-matching substitutes for actual computation: familiar surface forms
+    override changed details, and token-level tasks fail in systematic ways.
+knowledge-boundaries:
+  title: Knowledge boundaries
+  description: >-
+    Training data has a cutoff and a popularity distribution; the model handles
+    both edges badly — stale facts stated as current, long-tail facts invented.

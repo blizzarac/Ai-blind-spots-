@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{% assign cat = site.data.categories[page.category_id] %}
+<h1>{{ cat.title }}</h1>
+<p>{{ cat.description }}</p>
+
+<ul class="entry-list">
+  {% assign entries = site.blindspots | where: "category", page.category_id | sort: "id" %}
+  {% for e in entries %}
+  <li>
+    <a class="entry-title" href="{{ e.url | relative_url }}">{{ e.title }}</a>
+    <span class="badge severity-{{ e.severity }}">{{ e.severity }}</span>
+    <p>{{ e.summary }}</p>
+    <span class="meta">detection: {{ e.detection }} · models: {{ e['models-affected'] | join: ", " }}</span>
+  </li>
+  {% endfor %}
+</ul>

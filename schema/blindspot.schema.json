@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://blizzarac.github.io/Ai-blind-spots-/schema/blindspot.schema.json",
+  "title": "Blind Spot Atlas entry frontmatter",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "category",
+    "severity",
+    "detection",
+    "models-affected",
+    "added",
+    "last-reviewed",
+    "trend",
+    "summary",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Kebab-case identifier; must equal the filename without .md"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "category": {
+      "enum": [
+        "confabulation",
+        "sycophancy",
+        "calibration",
+        "context-failures",
+        "reasoning-shortcuts",
+        "knowledge-boundaries"
+      ]
+    },
+    "severity": {
+      "enum": ["low", "medium", "high"],
+      "description": "Impact when it fires in an engineering workflow"
+    },
+    "detection": {
+      "enum": ["verifiable", "statistical", "manual"],
+      "description": "verifiable = mechanically checkable per instance; statistical = measurable as a rate over a batch; manual = needs human judgment"
+    },
+    "models-affected": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Use [general] unless the failure is model-family-specific"
+    },
+    "added": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "last-reviewed": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "trend": {
+      "enum": ["improving", "persistent", "worsening", "unclear"],
+      "description": "Does this improve with newer models? Must match the Status section's claim"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 400,
+      "description": "One or two sentences; used on index pages and in atlas.json"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "title": { "type": "string", "minLength": 5 },
+          "url": { "type": "string", "pattern": "^https://" }
+        }
+      }
+    }
+  }
+}

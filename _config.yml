@@ -1,0 +1,31 @@
+title: Blind Spot Atlas
+description: A field guide to systematic AI failure modes
+url: "https://blizzarac.github.io"
+baseurl: "/Ai-blind-spots-"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+collections:
+  blindspots:
+    output: true
+    permalink: /blindspots/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: blindspots
+    values:
+      layout: blindspot
+
+# drafts/ holds entries without reproducible examples — they never publish.
+exclude:
+  - drafts/
+  - scripts/
+  - schema/
+  - CONTRIBUTING.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
