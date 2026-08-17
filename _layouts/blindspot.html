@@ -10,7 +10,7 @@ layout: default
   </p>
   <h1>{{ page.title }}</h1>
   <p class="meta">
-    id: <code>{{ page.id }}</code> ·
+    id: <code>{{ page.slug }}</code> ·
     models affected: {{ page['models-affected'] | join: ", " }} ·
     added {{ page.added | date: "%Y-%m-%d" }} ·
     last reviewed {{ page['last-reviewed'] | date: "%Y-%m-%d" }}
@@ -28,7 +28,7 @@ layout: default
   {% endif %}
 
   <p class="meta">
-    <a href="https://github.com/blizzarac/Ai-blind-spots-/blob/main/_blindspots/{{ page.id }}.md">Source markdown</a> ·
+    <a href="https://github.com/blizzarac/Ai-blind-spots-/blob/main/_blindspots/{{ page.slug }}.md">Source markdown</a> ·
     <a href="{{ '/atlas.json' | relative_url }}">machine-readable index</a>
   </p>
 </article>

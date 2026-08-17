@@ -17,7 +17,7 @@ permalink: /atlas.json
   },
   "entries": [
     {% assign entries = site.blindspots | sort: "id" %}{% for e in entries %}{
-      "id": {{ e.id | jsonify }},
+      "id": {{ e.slug | jsonify }},
       "title": {{ e.title | jsonify }},
       "category": {{ e.category | jsonify }},
       "severity": {{ e.severity | jsonify }},
@@ -27,9 +27,10 @@ permalink: /atlas.json
       "last_reviewed": {{ e['last-reviewed'] | date: "%Y-%m-%d" | jsonify }},
       "summary": {{ e.summary | jsonify }},
       "url": {{ e.url | prepend: site.baseurl | prepend: site.url | jsonify }},
-      "markdown_url": {{ e.id | prepend: "https://raw.githubusercontent.com/blizzarac/Ai-blind-spots-/main/_blindspots/" | append: ".md" | jsonify }},
+      "markdown_url": {{ e.slug | prepend: "https://raw.githubusercontent.com/blizzarac/Ai-blind-spots-/main/_blindspots/" | append: ".md" | jsonify }},
       "sources": {{ e.sources | jsonify }},
-      "body_text": {{ e.content | markdownify | strip_html | normalize_whitespace | jsonify }}
+      "body_html": {{ e.content | jsonify }},
+      "body_text": {{ e.content | strip_html | normalize_whitespace | jsonify }}
     }{% unless forloop.last %},
     {% endunless %}{% endfor %}
   ]
