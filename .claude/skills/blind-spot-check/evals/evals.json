@@ -1,0 +1,17 @@
+{
+  "skill_name": "blind-spot-check",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "A teammate pasted this AI-generated snippet and wants to merge it into our shared HTTP utilities module. Review it for issues before we merge: ai_snippet.py",
+      "expected_output": "A review that catches the hallucinated requests APIs and the nonexistent package, recommends mechanical verification, and cites the relevant atlas entries",
+      "files": ["inputs/ai_snippet.py"]
+    },
+    {
+      "id": 1,
+      "prompt": "I'm designing a RAG-based assistant over ~2,000 internal engineering documents for our teams. Users will ask it questions in long multi-turn chats. What failure modes should I guard against and what should the design include to handle them?",
+      "expected_output": "A design writeup covering position effects, multi-turn decay, and long-tail knowledge risks, with detection mechanisms and atlas citations",
+      "files": []
+    }
+  ]
+}
